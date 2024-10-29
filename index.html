@@ -42,6 +42,41 @@
         <div id="displayBox" class="mt-4 p-3 border rounded d-none"></div>
     </div>
 
-    
+    <script>
+        let lastCountry = null;
+
+        $(document).ready(function() {
+            $("#addressForm").validate({
+                rules: {
+                    country: "required",
+                    streetName: "required",
+                    suburb: "required",
+                    postcode: {
+                        required: true,
+                        digits: true
+                    }
+                },
+                messages: {
+                    country: "Please select your country",
+                    streetName: "Please enter your street name",
+                    suburb: "Please enter your suburb",
+                    postcode: {
+                        required: "Please enter your postcode",
+                        digits: "Please enter a valid postcode"
+                    }
+                },
+                highlight: function(element) {
+                    $(element).addClass("is-invalid");
+                },
+                unhighlight: function(element) {
+                    $(element).removeClass("is-invalid");
+                },
+                submitHandler: function(form) {
+                    handleFormSubmission();
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
