@@ -76,7 +76,29 @@
                 }
             });
         });
-    </script>
 
+        function handleFormSubmission() {
+            const country = $("#country").val();
+            const streetName = $("#streetName").val();
+            const suburb = $("#suburb").val();
+            const postcode = $("#postcode").val();
+
+            const displayBox = $("#displayBox");
+            if (country === "AUS" || (country === "NZ" && lastCountry === "AUS")) {
+                const price = "$500,000";
+                displayBox.html(`<strong>Address Entered:</strong> ${streetName.charAt(0).toUpperCase() + streetName.slice(1).toLowerCase()} ${suburb.charAt(0).toUpperCase() + suburb.slice(1).toLowerCase()} ${postcode}, ${country} <br><strong>Estimated Price:</strong> ${price}`);
+                displayBox.removeClass("d-none").addClass("d-block");
+            } else {
+                displayBox.html(`<strong>Address Entered:</strong> ${streetName.charAt(0).toUpperCase() + streetName.slice(1).toLowerCase()} ${suburb.charAt(0).toUpperCase() + suburb.slice(1).toLowerCase()} ${postcode}, ${country}`);
+                displayBox.removeClass("d-none").addClass("d-block");
+            }
+            lastCountry = country;
+        }
+
+        function handleReset() {
+            $("#displayBox").html('').addClass("d-none").removeClass("d-block");
+            $(".is-invalid").removeClass("is-invalid");
+        }
+     </script>
 </body>
 </html>
