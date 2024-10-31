@@ -85,7 +85,6 @@
             justify-content: space-between;
         }
     </style>
-
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100">
     <div id="addressFormContainer" class="bg-white p-4 rounded shadow">
@@ -161,7 +160,7 @@
             const postcode = $("#postcode").val();
 
             const displayBox = $("#displayBox");
-            if (country === "AUS" || (country === "NZ" && lastCountry === "AUS")) {
+            if (country === "AUS" || (country === "NZ") ) {
                 const price = "$500,000";
                 displayBox.html(`<strong>Address Entered:</strong> ${streetName.charAt(0).toUpperCase() + streetName.slice(1).toLowerCase()} ${suburb.charAt(0).toUpperCase() + suburb.slice(1).toLowerCase()} ${postcode}, ${country} <br><strong>Estimated Price:</strong> ${price}`);
                 displayBox.removeClass("d-none").addClass("d-block");
@@ -177,6 +176,5 @@
             $(".is-invalid").removeClass("is-invalid");
         }
     </script>
-
 </body>
 </html>
