@@ -160,7 +160,7 @@
             const postcode = $("#postcode").val();
 
             const displayBox = $("#displayBox");
-            if (country === "AUS" || (country === "NZ") ) {
+            if (country === "AUS" ) {
                 const price = "$500,000";
                 displayBox.html(`<strong>Address Entered:</strong> ${streetName.charAt(0).toUpperCase() + streetName.slice(1).toLowerCase()} ${suburb.charAt(0).toUpperCase() + suburb.slice(1).toLowerCase()} ${postcode}, ${country} <br><strong>Estimated Price:</strong> ${price}`);
                 displayBox.removeClass("d-none").addClass("d-block");
